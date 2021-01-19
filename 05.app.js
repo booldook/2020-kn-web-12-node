@@ -19,6 +19,12 @@ app.get('/search', (req, res) => {
 	res.render('search', { q });
 });
 
+// http://127.0.0.1:3000/band?src=ny
+app.get('/band', (req, res) => {
+	const src = req.query.src;
+	res.render('band', { src });
+});
+
 app.use((req, res) => {
 	res.redirect('/html/404.html');
 });
