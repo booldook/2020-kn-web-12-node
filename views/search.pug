@@ -14,9 +14,12 @@ html(lang="ko")
 					input.form-control(type="text" name="q" value=`${q}`)
 					button.btn.btn-primary.ml-2 검색
 			ul.result-wrap
-				li.py-2.border-bottom
-					.title 검색:
-					.content 검색결과입니다.
+				each v in lists
+					li.py-2.border-bottom
+						h5.title= v.title 
+						.content.d-flex
+							img.mr-2(style="width: 80px;" src=`${v.src}`)
+							p= v.content
 			.text-center.py-3
 				a(href="/") 메인으로 돌아가기
 	
