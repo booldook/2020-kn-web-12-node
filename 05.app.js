@@ -1,8 +1,3 @@
-// console.log('__dirname: ' + __dirname);
-// console.log('__filename: ' + __filename);
-// console.log('path.join(): ' + path.join(__dirname, '../'));
-// console.log('path.join(): ' + path.join(__dirname, './public'));
-
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -31,6 +26,31 @@ app.get('/band', (req, res) => {
 	const src = req.query.src;
 	res.render('band', { src });
 });
+
+app.get('/main', (req, res) => {
+	const pug = { css: 'main', js: 'main' }
+	res.render('index', pug);
+})
+
+app.get('/about', (req, res) => {
+	const pug = { css: 'about', js: 'about' }
+	res.render('about', pug);
+})
+
+app.get('/pf', (req, res) => {
+	const pug = { css: 'pf', js: 'pf' }
+	res.render('pf', pug);
+})
+
+app.get('/contact', (req, res) => {
+	const pug = { css: 'contact', js: 'contact' }
+	res.render('contact', pug);
+})
+
+app.get('/info', (req, res) => {
+	const pug = { css: 'info', js: 'info' }
+	res.render('info', pug);
+})
 
 app.use((req, res) => {
 	res.redirect('/html/404.html');
