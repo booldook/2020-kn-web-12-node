@@ -1,0 +1,23 @@
+extends ../layout/default.pug
+block title
+	div CITY LIST
+block content
+	.wrapper
+		table.city-table.table.table-hover
+			thead.thead-dark
+				tr
+					th 번호
+					th 도시명
+					th 설명
+					th 위치
+					th 인구수
+					th 설립일
+			tbody
+				each v in city
+					tr
+						td= v.id
+						td= v.name
+						td.text-left= v.summary
+						td= `위도: ${v.lat}, 경도: ${v.lon}`
+						td.text-right= v.population
+						td= v.sdate
